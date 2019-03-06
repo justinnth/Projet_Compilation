@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="163e4840-c237-45ab-8e75-55d7dbd3b852" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/files/AS.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/C0.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/Mini.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/ND01.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/ND03.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/NDSL01.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/NDSL02.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/NDSL04.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/S0.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/S1.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/S2.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/T0.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/T1.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/T6.descr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/compilation/AEF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/compilation/Etat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/compilation/Moteur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/compilation/Transition.java" afterDir="false" />
+    <list default="true" id="163e4840-c237-45ab-8e75-55d7dbd3b852" name="Default Changelist" comment="Création des classes et ajouts des fichier description">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compilation/AEF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/compilation/AEF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compilation/Etat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/compilation/Etat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/compilation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/compilation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/AS.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/AS.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/C0.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/C0.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/Mini.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/Mini.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/ND01.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/ND01.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/ND03.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/ND03.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/NDSL01.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/NDSL01.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/NDSL02.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/NDSL02.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/NDSL04.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/NDSL04.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/S0.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/S0.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/S1.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/S1.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/S2.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/S2.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/T0.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/T0.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/T1.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/T1.descr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/T6.descr" beforeDir="false" afterPath="$PROJECT_DIR$/files/T6.descr" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/compilation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
-              <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -52,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/compilation/AEF.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="56" column="64" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
+            <state relative-caret-position="400">
+              <caret line="114" column="66" selection-start-line="114" selection-start-column="66" selection-end-line="114" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,29 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/files/C0.descr">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="14" selection-start-column="14" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/files/AS.descr">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/compilation/Etat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="70" selection-start-line="70" selection-end-line="70" />
+            <state relative-caret-position="561">
+              <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
               <folding>
                 <element signature="e#1023#1024#0" expanded="true" />
                 <element signature="e#1049#1050#0" expanded="true" />
@@ -100,15 +81,6 @@
                 <element signature="e#1516#1517#0" expanded="true" />
                 <element signature="e#1550#1551#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/compilation/Transition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -135,10 +107,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/compilation/Moteur.java" />
         <option value="$PROJECT_DIR$/src/files/AS.descr" />
-        <option value="$PROJECT_DIR$/src/compilation/Etat.java" />
         <option value="$PROJECT_DIR$/src/files/C0.descr" />
-        <option value="$PROJECT_DIR$/src/compilation/AEF.java" />
         <option value="$PROJECT_DIR$/src/compilation/Main.java" />
+        <option value="$PROJECT_DIR$/src/compilation/AEF.java" />
+        <option value="$PROJECT_DIR$/src/compilation/Etat.java" />
       </list>
     </option>
   </component>
@@ -183,11 +155,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551864046395" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551867525797" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/compilation" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -235,7 +208,7 @@
       <updated>1551700871273</updated>
       <workItem from="1551700875395" duration="241000" />
       <workItem from="1551860052437" duration="33000" />
-      <workItem from="1551860231854" duration="2634000" />
+      <workItem from="1551860231854" duration="5882000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with Intellij project">
       <created>1551700951668</created>
@@ -248,7 +221,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2908000" />
+    <option name="totallyTimeSpent" value="6156000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -261,7 +234,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Messages" weight="0.32987553" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23651452" />
@@ -270,7 +243,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4993895" weight="0.1882481" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4993895" weight="0.18775934" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.2033195" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50061053" side_tool="true" weight="0.1882481" />
@@ -330,11 +303,26 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit with Intellij project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit with Intellij project" />
+    <MESSAGE value="Création des classes et ajouts des fichier description" />
+    <option name="LAST_COMMIT_MESSAGE" value="Création des classes et ajouts des fichier description" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/files/ND01.descr">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/files/C0.descr">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/compilation/Moteur.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -352,15 +340,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/files/AS.descr">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        <state relative-caret-position="161">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compilation/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compilation/AEF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="114" column="66" selection-start-line="114" selection-start-column="66" selection-end-line="114" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/compilation/Etat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="561">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
           <folding>
             <element signature="e#1023#1024#0" expanded="true" />
             <element signature="e#1049#1050#0" expanded="true" />
@@ -377,30 +382,6 @@
             <element signature="e#1516#1517#0" expanded="true" />
             <element signature="e#1550#1551#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/files/C0.descr">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compilation/AEF.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="56" column="64" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compilation/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
         </state>
       </provider>
     </entry>

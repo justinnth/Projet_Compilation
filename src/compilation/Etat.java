@@ -68,5 +68,7 @@ public class Etat {
         return transitions;
     }
 
+    public void addTransition(char entree, Etat fin, char sortie){
 
+    }
 }

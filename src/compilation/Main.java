@@ -6,7 +6,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	// write your code here
-        System.out.println(System.getProperty("user.dir"));
-        AEF automate = new AEF("CO.descr");
+        AEF automate = new AEF("AS.descr");
     }
 }
