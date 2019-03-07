@@ -86,7 +86,7 @@ class Transition implements Comparable {
      */
     @Override
     public String toString() {
-        return "Transition {\n" + "\tetatSortie=" + etatSortie + ", sortie=" + sortie + "\n}";
+        return "Transition { " + "etatSortie=" + etatSortie + ", sortie=" + sortie + " }";
     }
 
     /**

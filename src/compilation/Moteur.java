@@ -83,12 +83,12 @@ public class Moteur {
                             Transition.meta = meta;
                         break;
                     case 'V':
-                        String l = ligne.substring(3, ligne.length() - 2);
+                        String l = ligne.substring(3, ligne.length() - 1);
                         for(int i = 0; i < l.length(); i++)
                             this.vocabulaireEntree.add(l.charAt(i));
                         break;
                     case 'O':
-                        l = ligne.substring(3, ligne.length() - 2);
+                        l = ligne.substring(3, ligne.length() - 1);
                         for(int i = 0; i < l.length(); i++)
                             this.vocabulaireSortie.add(l.charAt(i));
                         break;
@@ -136,5 +136,88 @@ public class Moteur {
         } catch (IOException e) {
             System.out.println("Erreur lors de l'ouverture du fichier : " + e);
         }
+    }
+
+    /**
+     * Méthode pour la lecture d'un mot par l'automate
+     * @param reader Input de l'utilisateur
+     * @throws IOException
+     */
+    public void lire(BufferedReader reader) throws IOException{
+        int numLigne = 0;
+        ArrayList<String> motsLus = new ArrayList<>();
+
+        System.out.println("Automate : \"" + this.commentaire + "\"\nVocabulaire accepté : " + this.vocabulaireEntree +
+                "\nVeuillez saisir les phrases à lire : ");
+
+        String mot;
+
+        while (!((mot = reader.readLine()).equals("###"))){
+            ++numLigne;
+            motsLus.add(mot);
+        }
+
+        System.out.println("========================");
+        System.out.println("Traitement :");
+
+        for(String m: motsLus){
+            ArrayList<String> motTraite = this.traiterMot(m);
+
+            if (motTraite.isEmpty())
+                System.out.println("Aucuns mots");
+            else{
+                for (String affichage: motTraite){
+                    System.out.println(affichage);
+                }
+            }
+        }
+        System.out.println("Fin de traitement");
+        System.out.println("========================");
+    }
+
+    /**
+     * Traitement des mots entrés par l'utilisateur
+     * @param mot Mot à traiter
+     * @return Liste des sorties fournies par l'automate
+     */
+    public ArrayList<String> traiterMot(String mot){
+        ArrayList<String> motsTraites = new ArrayList<>();
+        String affichage = "";
+        String sortieS = "";
+        Etat etatCourant = new Etat(this.etatsInitiaux.get(0));
+
+        for(int i = 0; i < mot.length(); ++i){
+            char c = mot.charAt(i);
+            affichage += "État courant : " + etatCourant.getNom() + ", Entrée : " + c;
+            if(etatCourant.getTransitions().containsKey(c)){
+                Transition t = new Transition();
+                for(Transition t2: etatCourant.getTransitions().get(c)){
+                    t = t2;
+                }
+
+                etatCourant = t.getEtatSortie();
+                char sortie = t.getSortie();
+
+                if(sortie != Transition.meta){
+                    affichage += ", Sortie : " + sortie;
+                    sortieS += sortie;
+                }
+
+                affichage += " Transition trouvée vers l'état : " + t.getEtatSortie().getNom() + '\n';
+            } else{
+                affichage += "Aucune transition trouvée\n";
+                break;
+            }
+        }
+        affichage += "État courant : " +etatCourant.getNom() + " Fin de chaine";
+        if(etatCourant.isEstAcceptant())
+            affichage += "\nÉtat acceptant";
+        else
+            affichage += "\nÉtat non acceptant";
+
+        affichage += "\nLa sortie de cette phrase est : " + sortieS;
+        affichage += "\n-- Fin de phrase --\n";
+        motsTraites.add(affichage);
+        return motsTraites;
     }
 }

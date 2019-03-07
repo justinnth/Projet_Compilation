@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="163e4840-c237-45ab-8e75-55d7dbd3b852" name="Default Changelist" comment="Création des classes et ajouts des fichier description">
+      <change beforePath="$PROJECT_DIR$/src/compilation/Etat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/compilation/Etat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compilation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/compilation/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/compilation/Moteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/compilation/Moteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compilation/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/compilation/Transition.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +19,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/compilation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="230">
+              <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -25,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/compilation/Moteur.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="133" column="17" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
+            <state relative-caret-position="319">
+              <caret line="205" column="31" selection-start-line="205" selection-start-column="31" selection-end-line="205" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,37 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/files/C0.descr">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/compilation/Etat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="187" column="5" selection-start-line="187" selection-start-column="5" selection-end-line="187" selection-end-column="5" />
-              <folding>
-                <element signature="e#1744#1745#0" expanded="true" />
-                <element signature="e#1770#1771#0" expanded="true" />
-                <element signature="e#1882#1883#0" expanded="true" />
-                <element signature="e#1912#1913#0" expanded="true" />
-                <element signature="e#2028#2029#0" expanded="true" />
-                <element signature="e#2061#2062#0" expanded="true" />
-                <element signature="e#2206#2207#0" expanded="true" />
-                <element signature="e#2250#2251#0" expanded="true" />
-                <element signature="e#2406#2407#0" expanded="true" />
-                <element signature="e#2441#2442#0" expanded="true" />
-                <element signature="e#2596#2597#0" expanded="true" />
-                <element signature="e#2644#2645#0" expanded="true" />
-                <element signature="e#2828#2829#0" expanded="true" />
-                <element signature="e#2862#2863#0" expanded="true" />
-                <element signature="e#3000#3001#0" expanded="true" />
-                <element signature="e#3026#3027#0" expanded="true" />
-                <element signature="e#4540#4541#0" expanded="true" />
-                <element signature="e#4564#4565#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="115">
+              <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -75,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/compilation/Transition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="20" selection-start-column="20" selection-end-column="20" />
+            <state relative-caret-position="184">
+              <caret line="88" column="87" selection-start-line="88" selection-start-column="87" selection-end-line="88" selection-end-column="87" />
               <folding>
                 <element signature="e#1334#1335#0" expanded="true" />
                 <element signature="e#1366#1367#0" expanded="true" />
@@ -117,9 +94,9 @@
         <option value="$PROJECT_DIR$/src/files/AS.descr" />
         <option value="$PROJECT_DIR$/src/files/C0.descr" />
         <option value="$PROJECT_DIR$/src/compilation/AEF.java" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/compilation/Main.java" />
         <option value="$PROJECT_DIR$/src/compilation/Transition.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/compilation/Etat.java" />
         <option value="$PROJECT_DIR$/src/compilation/Moteur.java" />
       </list>
@@ -149,6 +126,11 @@
             <path>
               <item name="Projet_Compilation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projet_Compilation" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet_Compilation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet_Compilation" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -167,7 +149,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551973186487" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551979525965" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
   </component>
   <component name="RecentsManager">
@@ -224,7 +206,7 @@
       <workItem from="1551860052437" duration="33000" />
       <workItem from="1551860231854" duration="6300000" />
       <workItem from="1551876078044" duration="90000" />
-      <workItem from="1551966959584" duration="5274000" />
+      <workItem from="1551966959584" duration="8656000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with Intellij project">
       <created>1551700951668</created>
@@ -237,13 +219,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11938000" />
+    <option name="totallyTimeSpent" value="15320000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12881564" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12881564" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -252,7 +234,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987553" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23547718" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23547718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -260,7 +242,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4993895" weight="0.18775934" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20228216" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.20228216" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50061053" side_tool="true" weight="0.1882481" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32987553" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -340,13 +322,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/compilation/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -359,22 +334,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/files/AS.descr">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="23">
+          <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/files/C0.descr">
+    <entry file="file://$PROJECT_DIR$/src/compilation/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/compilation/Transition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
+        <state relative-caret-position="184">
+          <caret line="88" column="87" selection-start-line="88" selection-start-column="87" selection-end-line="88" selection-end-column="87" />
           <folding>
             <element signature="e#1334#1335#0" expanded="true" />
             <element signature="e#1366#1367#0" expanded="true" />
@@ -388,8 +366,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/compilation/Etat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="187" column="5" selection-start-line="187" selection-start-column="5" selection-end-line="187" selection-end-column="5" />
+        <state relative-caret-position="470">
+          <caret line="200" column="24" lean-forward="true" selection-start-line="200" selection-start-column="24" selection-end-line="200" selection-end-column="24" />
           <folding>
             <element signature="e#1744#1745#0" expanded="true" />
             <element signature="e#1770#1771#0" expanded="true" />
@@ -413,10 +391,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/files/C0.descr">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/compilation/Moteur.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="133" column="17" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
+        <state relative-caret-position="319">
+          <caret line="205" column="31" selection-start-line="205" selection-start-column="31" selection-end-line="205" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

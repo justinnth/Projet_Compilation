@@ -191,4 +191,13 @@ public class Etat implements Comparable {
     public int compareTo(Object o) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        String toString = "Etat { nom=" + this.nom + ", initial=";
+        toString += (this.estInitial) ? " oui" : " non";
+        toString += ", acceptant=";
+        toString += (this.estAcceptant) ? " oui" : " non";
+        return toString;
+    }
 }
