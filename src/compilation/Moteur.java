@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Représentation de l'automate
  */
-public class AEF {
+public class Moteur {
     private final String DOSSIER = "files/";
     private static char meta = '#';
     private String C, V, O;
@@ -21,7 +21,7 @@ public class AEF {
     /**
      * Constructeur par défaut
      */
-    public AEF() {
+    public Moteur() {
         this.lesEtats = new ArrayList<>();
         this.lesEtats.add(new Etat("0", true, false));
         this.C = "sansNom";
@@ -39,7 +39,7 @@ public class AEF {
      * @param file nom du fichier
      * @throws IOException
      */
-    public AEF(String file) throws IOException {
+    public Moteur(String file) throws IOException {
         this();
 
         if(!file.endsWith(".descr"))
@@ -59,6 +59,8 @@ public class AEF {
             String ligne;
             int numLigne = 0;
 
+            System.out.println("Automate");
+            System.out.println("===========");
             while ((ligne = br.readLine()) != null && !ligne.equals("")) {
                 System.out.println(ligne);
                 ++numLigne;
@@ -107,7 +109,7 @@ public class AEF {
                         fin = this.lesEtats.get(Integer.parseInt(ligneSplit[2]));
 
                         entree = ligneSplit[1].charAt(1);
-                        sortie = AEF.meta;
+                        sortie = Moteur.meta;
 
                         if (ligneSplit.length > 3) {
                             if (sortie != ligneSplit[3].charAt(1))
