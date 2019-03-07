@@ -220,4 +220,25 @@ public class Moteur {
         motsTraites.add(affichage);
         return motsTraites;
     }
+
+    public void exporterGraph(String nom){
+        PrintWriter wr;
+        HashMap <String,Boolean> map = new HashMap<String,Boolean>();
+        if(complet){
+            try{
+                wr = new PrintWriter(nom);
+                wr.write("digraph G {\n");
+                for(int i = 0;i<transitions.size();i++){
+                    String str = "\t"+transitions.get(i).getBase()+" -> "+transitions.get(i).getSuivant()+"[label=\""+transitions.get(i).getEntree()+"\"]";
+                    if(map.get(str) == null){
+                        wr.write(str+";\n");
+                        map.put(str,true);
+                    }
+                }
+                wr.write("}");
+                wr.close();
+            }catch(Exception exc){
+
+            }
+        }
 }
