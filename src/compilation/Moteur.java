@@ -45,13 +45,14 @@ public class Moteur {
 
     /**
      * Initialisation d'un automate à partir d'un fichier .descr
+     *
      * @param file nom du fichier
      * @throws IOException
      */
     public Moteur(String file) throws IOException {
         this();
 
-        if(!file.endsWith(".descr"))
+        if (!file.endsWith(".descr"))
             throw new IllegalArgumentException("Le format de fichier attendu est .descr");
 
         lireFichierDescr(file);
@@ -59,6 +60,7 @@ public class Moteur {
 
     /**
      * Lecture d'un fichier .descr
+     *
      * @param f fichier .descr
      * @throws IOException Exception pour l'ouvertur du fichier
      */
@@ -79,17 +81,17 @@ public class Moteur {
                         break;
                     case 'M':
                         char meta = ligne.charAt(3);
-                        if(!Transition.meta.equals(meta))
+                        if (!Transition.meta.equals(meta))
                             Transition.meta = meta;
                         break;
                     case 'V':
                         String l = ligne.substring(3, ligne.length() - 1);
-                        for(int i = 0; i < l.length(); i++)
+                        for (int i = 0; i < l.length(); i++)
                             this.vocabulaireEntree.add(l.charAt(i));
                         break;
                     case 'O':
                         l = ligne.substring(3, ligne.length() - 1);
-                        for(int i = 0; i < l.length(); i++)
+                        for (int i = 0; i < l.length(); i++)
                             this.vocabulaireSortie.add(l.charAt(i));
                         break;
                     case 'E':
@@ -140,10 +142,11 @@ public class Moteur {
 
     /**
      * Méthode pour la lecture d'un mot par l'automate
+     *
      * @param reader Input de l'utilisateur
      * @throws IOException
      */
-    public void lire(BufferedReader reader) throws IOException{
+    public void lire(BufferedReader reader) throws IOException {
         int numLigne = 0;
         ArrayList<String> motsLus = new ArrayList<>();
 
@@ -152,7 +155,7 @@ public class Moteur {
 
         String mot;
 
-        while (!((mot = reader.readLine()).equals("###"))){
+        while (!((mot = reader.readLine()).equals("###"))) {
             ++numLigne;
             motsLus.add(mot);
         }
@@ -160,13 +163,13 @@ public class Moteur {
         System.out.println("========================");
         System.out.println("Traitement :");
 
-        for(String m: motsLus){
+        for (String m : motsLus) {
             ArrayList<String> motTraite = this.traiterMot(m);
 
             if (motTraite.isEmpty())
                 System.out.println("Aucuns mots");
-            else{
-                for (String affichage: motTraite){
+            else {
+                for (String affichage : motTraite) {
                     System.out.println(affichage);
                 }
             }
@@ -177,40 +180,41 @@ public class Moteur {
 
     /**
      * Traitement des mots entrés par l'utilisateur
+     *
      * @param mot Mot à traiter
      * @return Liste des sorties fournies par l'automate
      */
-    public ArrayList<String> traiterMot(String mot){
+    public ArrayList<String> traiterMot(String mot) {
         ArrayList<String> motsTraites = new ArrayList<>();
         String affichage = "";
         String sortieS = "";
         Etat etatCourant = new Etat(this.etatsInitiaux.get(0));
 
-        for(int i = 0; i < mot.length(); ++i){
+        for (int i = 0; i < mot.length(); ++i) {
             char c = mot.charAt(i);
             affichage += "État courant : " + etatCourant.getNom() + ", Entrée : " + c;
-            if(etatCourant.getTransitions().containsKey(c)){
+            if (etatCourant.getTransitions().containsKey(c)) {
                 Transition t = new Transition();
-                for(Transition t2: etatCourant.getTransitions().get(c)){
+                for (Transition t2 : etatCourant.getTransitions().get(c)) {
                     t = t2;
                 }
 
                 etatCourant = t.getEtatSortie();
                 char sortie = t.getSortie();
 
-                if(sortie != Transition.meta){
+                if (sortie != Transition.meta) {
                     affichage += ", Sortie : " + sortie;
                     sortieS += sortie;
                 }
 
                 affichage += " Transition trouvée vers l'état : " + t.getEtatSortie().getNom() + '\n';
-            } else{
+            } else {
                 affichage += "Aucune transition trouvée\n";
                 break;
             }
         }
-        affichage += "État courant : " +etatCourant.getNom() + " Fin de chaine";
-        if(etatCourant.isEstAcceptant())
+        affichage += "État courant : " + etatCourant.getNom() + " Fin de chaine";
+        if (etatCourant.isEstAcceptant())
             affichage += "\nÉtat acceptant";
         else
             affichage += "\nÉtat non acceptant";
@@ -220,25 +224,4 @@ public class Moteur {
         motsTraites.add(affichage);
         return motsTraites;
     }
-
-    public void exporterGraph(String nom){
-        PrintWriter wr;
-        HashMap <String,Boolean> map = new HashMap<String,Boolean>();
-        if(complet){
-            try{
-                wr = new PrintWriter(nom);
-                wr.write("digraph G {\n");
-                for(int i = 0;i<transitions.size();i++){
-                    String str = "\t"+transitions.get(i).getBase()+" -> "+transitions.get(i).getSuivant()+"[label=\""+transitions.get(i).getEntree()+"\"]";
-                    if(map.get(str) == null){
-                        wr.write(str+";\n");
-                        map.put(str,true);
-                    }
-                }
-                wr.write("}");
-                wr.close();
-            }catch(Exception exc){
-
-            }
-        }
 }

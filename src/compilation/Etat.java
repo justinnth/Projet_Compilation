@@ -1,5 +1,6 @@
 package compilation;
 
+import java.io.PrintWriter;
 import java.util.*;
 
 /**
@@ -185,6 +186,26 @@ public class Etat implements Comparable {
 
     public boolean addTransition(Etat etatSortie){
         return this.addTransition(Transition.meta, new Transition(etatSortie));
+    }
+
+    public void exporterGraph(String nom) {
+        PrintWriter wr;
+        HashMap<String, Boolean> map = new HashMap<String, Boolean>();
+        try {
+            wr = new PrintWriter(nom);
+            wr.write("digraph G {\n");
+            for (int i = 0; i < transitions.size(); i++) {
+                String str = "\t" + transitions.get(i).getBase() + " -> " + transitions.get(i).getSuivant() + "[label=\"" + transitions.get(i).getEntree() + "\"]";
+                if (map.get(str) == null) {
+                    wr.write(str + ";\n");
+                    map.put(str, true);
+                }
+            }
+            wr.write("}");
+            wr.close();
+        } catch (Exception exc) {
+
+        }
     }
 
     @Override
