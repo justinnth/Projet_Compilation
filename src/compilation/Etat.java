@@ -140,7 +140,51 @@ public class Etat implements Comparable {
      */
     public Set<Character> ensembleCaracteresSortie(){
         Set<Character> ensembleSortie = new HashSet<>();
+
+        for (Set<Transition> ensembleTransition : this.transitions.values()){
+            for(Transition t: ensembleTransition){
+                ensembleSortie.add(t.getSortie());
+            }
+        }
         return ensembleSortie;
+    }
+
+    /**
+     * Méthode permettant d'ajouter une transition à l'état
+     * @param entree Caractère d'entrée de la transition
+     * @param t Transition à ajouter
+     * @return true si ajoutée, false sinon
+     */
+    private boolean addTransition(char entree, Transition t){
+        boolean added;
+        if (this.transitions.containsKey(entree))
+            added = this.transitions.get(entree).add(t);
+        else{
+            Set<Transition> set = new HashSet<>();
+            set.add(t);
+            this.transitions.put(entree, set);
+            added = true;
+        }
+        return added;
+    }
+
+    /**
+     * Méthodes pour ajouter une transition à l'état
+     * @param entree caractère d'entrée dans la transition
+     * @param etatSortie état de sortie de la transition
+     * @param sortie caractère de sortie de la transition
+     * @return true si la transition est ajoutée, false sinon
+     */
+    public boolean addTransition(char entree, Etat etatSortie, char sortie){
+        return this.addTransition(entree, new Transition(etatSortie, sortie));
+    }
+
+    public boolean addTransition(char entree, Etat etatSortie){
+        return this.addTransition(entree, new Transition(etatSortie));
+    }
+
+    public boolean addTransition(Etat etatSortie){
+        return this.addTransition(Transition.meta, new Transition(etatSortie));
     }
 
     @Override

@@ -1,7 +1,5 @@
 package compilation;
 
-import java.util.Objects;
-
 /**
  * Classe représentant une transition
  * Une transition est nécessairement liée à un État et à un caractère d'entrée
