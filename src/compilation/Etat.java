@@ -1,12 +1,30 @@
 package compilation;
 
-import java.util.ArrayList;
+import java.util.*;
 
-public class Etat {
+/**
+ * Classe représentant un Etat
+ */
+public class Etat implements Comparable {
+    /**
+     * Nom de l'état ou numéro suivant l'automate
+     */
     private String nom;
+
+    /**
+     * Etat initial ou non
+     */
     private boolean estInitial;
+
+    /**
+     * Etat acceptant ou non
+     */
     private boolean estAcceptant;
-    private ArrayList<Transition> transitions;
+
+    /**
+     * Mappage des états avec une clé etant le caractère d'entrée
+     */
+    private Map<Character, Set<Transition>> transitions;
 
     /**
      * Constructeur d'un état vide
@@ -15,11 +33,11 @@ public class Etat {
         this.nom = "";
         this.estInitial = false;
         this.estAcceptant = false;
-        this.transitions = new ArrayList<>();
+        this.transitions = new HashMap<>();
     }
 
     /**
-     * Constructeur d'un état avec un nom
+     * Constructeur d'un état avec un nom ou id
      * @param nom Nom de l'état
      */
     public Etat(String nom) {
@@ -28,7 +46,7 @@ public class Etat {
     }
 
     /**
-     * Constrcteur d'un état avec un nom et s'il est acceptant ou initial
+     * Constrcteur d'un état avec un nom/id et s'il est acceptant et/ou initial
      * @param nom Nom de l'état
      * @param estInitial Initial ou non
      * @param estAcceptant Acceptant ou non
@@ -40,35 +58,93 @@ public class Etat {
         this.estAcceptant = estAcceptant;
     }
 
+    /**
+     * Constructeur d'un etat à partir d'un autre etat
+     * @param e Etat
+     */
+    public Etat(Etat e){
+        this.nom = e.nom;
+        this.estAcceptant = e.estAcceptant;
+        this.estInitial = e.estInitial;
+        this.transitions = new HashMap<>(e.transitions);
+    }
+
+    /**
+     * Getter pour le nom
+     * @return Nom de l'état
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Setter pour le nom
+     * @param nom Nom à donner à l'etat
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     * Initial ou non
+     * @return true si initial, false sinon
+     */
     public boolean isEstInitial() {
         return estInitial;
     }
 
+    /**
+     * Setter pour l'etat initial ou non
+     * @param estInitial true pour rendre l'etat initial, false sinon
+     */
     public void setEstInitial(boolean estInitial) {
         this.estInitial = estInitial;
     }
 
+    /**
+     * Acceptant ou non
+     * @return true si acceptant, false sinon
+     */
     public boolean isEstAcceptant() {
         return estAcceptant;
     }
 
+    /**
+     * Setter pour l'etat acceptant ou non
+     * @param estAcceptant true pour rendre l'état acceptant, false sinon
+     */
     public void setEstAcceptant(boolean estAcceptant) {
         this.estAcceptant = estAcceptant;
     }
 
-    public ArrayList<Transition> getTransitions() {
+    /**
+     * Getter pour la liste des transitions
+     * @return Liste des transitions et leur caractère associé
+     */
+    public Map<Character, Set<Transition>> getTransitions() {
         return transitions;
     }
 
-    public void addTransition(char entree, Etat fin, char sortie){
+    /**
+     * Getter pour l'ensemble des caractères d'entrée accéptés par les transitions de l'état
+     * @return Ensemble des caractères
+     */
+    public Set<Character> ensembleCaracteresEntree(){
+        return this.transitions.keySet();
+    }
 
+    /**
+     * Getter pour l'ensemble des caractères de sortie donnés par les transitions de l'état
+     * Pour cela on va utiliser une méthode de la classe Transition
+     * @return Ensemble des caractères
+     */
+    public Set<Character> ensembleCaracteresSortie(){
+        Set<Character> ensembleSortie = new HashSet<>();
+        return ensembleSortie;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }
