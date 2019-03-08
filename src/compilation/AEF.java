@@ -170,7 +170,8 @@ public class AEF {
 
     @Override
     public String toString() {
-        String affiche = "Nom : " + this.commentaire +
+        String affiche = "======================\n" +
+                "Nom : " + this.commentaire +
                 "\nCaractère par défaut : " + AEF.meta +
                 "\nVocabulaire d'entrée : ";
         for (char c : this.vocabulaireEntree)

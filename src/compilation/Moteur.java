@@ -37,7 +37,7 @@ public class Moteur {
             int numLigne = 0;
 
             System.out.println("Automate");
-            System.out.println("===========");
+            System.out.println("======================");
             while ((ligne = br.readLine()) != null && !ligne.equals("")) {
                 System.out.println(ligne);
                 ++numLigne;
@@ -122,7 +122,8 @@ public class Moteur {
         int numLigne = 0;
         ArrayList<String> motsLus = new ArrayList<>();
 
-        System.out.println("Automate : \"" + this.automate.getCommentaire() + "\"\nVocabulaire accepté : " + this.automate.getVocabulaireEntree() +
+        System.out.println("======================\n" +
+                "Automate : \"" + this.automate.getCommentaire() + "\"\nVocabulaire accepté : " + this.automate.getVocabulaireEntree() +
                 "\nVeuillez saisir les phrases à lire : ");
 
         String mot;
@@ -172,8 +173,8 @@ public class Moteur {
             Transition t = new Transition();
             for(Transition t2: transitionsDeE){
                 if (t2.getEntree().equals(c)){
-                    containsC = true;
                     t = t2;
+                    containsC = true;
                 }
             }
 
@@ -198,7 +199,10 @@ public class Moteur {
         else
             affichage += "\nÉtat non acceptant";
 
-        affichage += "\nLa sortie de cette phrase est : " + sortieS;
+        if(sortieS != "")
+            affichage += "\nLa sortie de cette phrase est : " + sortieS;
+        else
+            affichage += "\nAucune sortie possible";
         affichage += "\n-- Fin de phrase --\n";
         motsTraites.add(affichage);
         return motsTraites;
