@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Représentation de l'automate
  */
 public class Moteur {
-    private static final String DOSSIER = "files/", DESCR = "descr/", DOT = "dot/", PNG = "png/";
+    public static final String DOSSIER = "files/", DESCR = "descr/", DOT = "dot/", PNG = "png/";
     private AEF automate;
 
     /**

@@ -1,7 +1,9 @@
 package compilation;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Determinisation {
     private AEF automateInitial;
@@ -134,5 +136,59 @@ public class Determinisation {
         this.automateDeterminise = new AEF(this.automateInitial.getCommentaire() + " - Deterministe", AEF.getMeta(), this.automateInitial.getVocabulaireEntree(), this.automateInitial.getVocabulaireSortie(), this.automateInitial.getNbEtats(), initiaux, etatsAcceptants, D);
         System.out.println(automateDeterminise);
         return this.automateDeterminise;
+    }
+
+    /**
+     * Génère le fichier .descr de l'automate déterministe
+     * Cette méthode ajoute ligne par ligne dans un fichier avec d'obtenir une description valable
+     * @param automate Automate
+     */
+    public void getDescr(AEF automate){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Saisir le nom du fichier à enregistrer : ");
+        String nomFichier = in.nextLine();
+        try(Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Moteur.DOSSIER + Moteur.DESCR + nomFichier + ".descr"), "utf-8"))){
+            if(!automate.getCommentaire().isEmpty())
+                writer.write("C " + automate.getCommentaire() + "\n");
+
+            writer.write("M " + AEF.getMeta() + "\n");
+
+            String v = "\"";
+            for(char c: automate.getVocabulaireEntree())
+                v += c;
+            v += "\"";
+            writer.write("V " + v + "\n");
+
+            if(!automate.getVocabulaireSortie().isEmpty()){
+                String o = "\"";
+                for (char c: automate.getVocabulaireSortie())
+                    o += c;
+                o += "\"";
+                writer.write("O " + o + "\n");
+            }
+
+            writer.write("E " + automate.getNbEtats() + "\n");
+
+            String i = "";
+            for (Etat e: automate.getEtatsInitiaux())
+                i += e.getNom() + " ";
+            writer.write("I " + i + "\n");
+
+            String f = "";
+            for (Etat e: automate.getEtatsAcceptants())
+                f += e.getNom() + " ";
+            writer.write("F " + f + "\n");
+
+            for (Transition t: automate.getTransitions())
+                writer.write("T " + t.getEtatEntree().getNom() + " '" + t.getEntree() + "' " + t.getEtatSortie().getNom() + " '" + t.getSortie() + "'");
+
+            System.out.println("Fichier .descr généré dans le dossier files/descr");
+        } catch (UnsupportedEncodingException e){
+            System.out.println(e);
+        } catch (FileNotFoundException e){
+            System.out.println(e);
+        } catch (IOException e){
+            System.out.println(e);
+        }
     }
 }

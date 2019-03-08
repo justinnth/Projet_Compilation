@@ -1,1 +1,1 @@
-digraph G{0->3 [label="#/#"];0->1 [label="#/#"];1->2 [label="#/#"];1->4 [label="a/#"];2->8 [label="#/#"];2->5 [label="b/#"];3->6 [label="b/#"];3->7 [label="c/#"];4->5 [label="b/#"];5->9 [label="#/#"];6->7 [label="b/#"];6->9 [label="#/#"];7->8 [label="#/#"];8->9 [label="a/#"];9->10 [label="a/#"];""->0;"" [shape=none]10 [peripheries=2];}
+digraph G{0->1 [label="p/#"];1->2 [label="a/#"];2->3 [label="p/#"];3->4 [label="a/H"];0->5 [label="m/#"];5->6 [label="a/#"];6->7 [label="m/#"];7->8 [label="a/#"];8->4 [label="n/F"];""->0;"" [shape=none]4 [peripheries=2];}

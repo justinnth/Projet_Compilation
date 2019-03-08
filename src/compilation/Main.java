@@ -26,10 +26,10 @@ public class Main {
         determinisation = new Determinisation();
 
         Moteur moteur = new Moteur(automate, nomFichier);
-        //moteur.lire(new BufferedReader(new InputStreamReader(System.in)));
+        moteur.lire(new BufferedReader(new InputStreamReader(System.in)));
 
         //determinisation.setAutomateInitial(moteur.getAutomate());
         //automate = determinisation.determinise();
-        moteur.getDotFile();
+        //moteur.getDotFile();
     }
 }
