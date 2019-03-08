@@ -1,61 +1,26 @@
 package compilation;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Représentation de l'automate
  */
 public class Moteur {
-    /**
-     * Dossier dans lequel se trouve les fichiers .descr
-     */
-    private final String DOSSIER = "files/";
-
-
-    private String commentaire;
-    private Set<Character> vocabulaireEntree, vocabulaireSortie;
-    private int nbEtats;
-
-    private ArrayList<Etat> lesEtats;
-    private ArrayList<Etat> etatsInitiaux;
-    private ArrayList<Etat> etatsAcceptants;
+    private static final String DOSSIER = "files/", DESCR = "descr/", DOT = "dot/", PNG = "png/";
+    private AEF automate;
 
     /**
      * Constructeur par défaut
      */
     public Moteur() {
-        this.lesEtats = new ArrayList<>();
-        this.lesEtats.add(new Etat("0", true, false)); // Ajout d'un état nommé 0, initial
-
-        this.commentaire = "sansNom";
-        this.vocabulaireEntree = new TreeSet<>();
-        this.vocabulaireSortie = new TreeSet<>();
-        this.nbEtats = this.lesEtats.size();
-
-        this.etatsInitiaux = new ArrayList<>();
-        this.etatsInitiaux.add(this.lesEtats.get(0));
-
-        this.etatsAcceptants = new ArrayList<>();
+        this.automate = new AEF();
     }
 
-    /**
-     * Initialisation d'un automate à partir d'un fichier .descr
-     *
-     * @param file nom du fichier
-     * @throws IOException
-     */
-    public Moteur(String file) throws IOException {
+    public Moteur(AEF automate) throws IOException {
         this();
-
-        if (!file.endsWith(".descr"))
-            throw new IllegalArgumentException("Le format de fichier attendu est .descr");
-
-        lireFichierDescr(file);
+        this.automate = automate;
+        this.lireFichierDescr("ND03.descr");
     }
 
     /**
@@ -66,7 +31,7 @@ public class Moteur {
      */
     private void lireFichierDescr(String f) throws IOException {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(DOSSIER + f));
+            BufferedReader br = new BufferedReader(new FileReader(DOSSIER + DESCR + f));
             String ligne;
             int numLigne = 0;
 
@@ -77,42 +42,48 @@ public class Moteur {
                 ++numLigne;
                 switch (ligne.charAt(0)) {
                     case 'C':
-                        this.commentaire = ligne.substring(3, ligne.length() - 1).trim();
+                        this.automate.setCommentaire(ligne.substring(3, ligne.length() - 1).trim());
                         break;
                     case 'M':
                         char meta = ligne.charAt(3);
-                        if (!Transition.meta.equals(meta))
-                            Transition.meta = meta;
+                        if (!AEF.getMeta().equals(meta))
+                            AEF.setMeta(meta);
                         break;
                     case 'V':
+                        ArrayList<Character> v = new ArrayList<>();
                         String l = ligne.substring(3, ligne.length() - 1);
                         for (int i = 0; i < l.length(); i++)
-                            this.vocabulaireEntree.add(l.charAt(i));
+                            v.add(l.charAt(i));
+                        this.automate.setVocabulaireEntree(v);
                         break;
                     case 'O':
+                        ArrayList<Character> o = new ArrayList<>();
                         l = ligne.substring(3, ligne.length() - 1);
                         for (int i = 0; i < l.length(); i++)
-                            this.vocabulaireSortie.add(l.charAt(i));
+                            o.add(l.charAt(i));
+                        this.automate.setVocabulaireSortie(o);
                         break;
                     case 'E':
-                        this.nbEtats = Integer.parseInt(ligne.substring(2));
-                        for (int i = 1; i < this.nbEtats; ++i)
-                            this.lesEtats.add(new Etat(Integer.toString(i)));
+                        this.automate.setNbEtats(Integer.parseInt(ligne.substring(2)));
+
+                        for(int i = 1; i < this.automate.getNbEtats(); i++){
+                            this.automate.getEtats().add(new Etat(String.valueOf(i)));
+                        }
                         break;
                     case 'I':
-                        this.lesEtats.get(0).setEstInitial(false);
-                        this.etatsInitiaux.clear();
+                        this.automate.getEtats().get(0).setEstInitial(false);
+                        this.automate.getEtatsInitiaux().clear();
                         for (String nomEtat : ligne.substring(2).split(" ")) {
-                            Etat etat = this.lesEtats.get(Integer.parseInt(nomEtat));
+                            Etat etat = this.automate.getEtats().get(Integer.parseInt(nomEtat));
                             etat.setEstInitial(true);
-                            this.etatsInitiaux.add(etat);
+                            this.automate.getEtatsInitiaux().add(etat);
                         }
                         break;
                     case 'F':
                         for (String nomEtat : ligne.substring(2).split(" ")) {
-                            Etat etat = this.lesEtats.get(Integer.parseInt(nomEtat));
+                            Etat etat = this.automate.getEtats().get(Integer.parseInt(nomEtat));
                             etat.setEstAcceptant(true);
-                            this.etatsAcceptants.add(etat);
+                            this.automate.getEtatsAcceptants().add(etat);
                         }
                         break;
                     case 'T':
@@ -121,17 +92,17 @@ public class Moteur {
                         Etat source, fin;
                         char entree, sortie;
 
-                        source = this.lesEtats.get(Integer.parseInt(ligneSplit[0]));
-                        fin = this.lesEtats.get(Integer.parseInt(ligneSplit[2]));
+                        source = this.automate.getEtats().get(Integer.parseInt(ligneSplit[0]));
+                        fin = this.automate.getEtats().get(Integer.parseInt(ligneSplit[2]));
 
                         entree = ligneSplit[1].charAt(1);
-                        sortie = Transition.meta;
+                        sortie = AEF.getMeta();
 
                         if (ligneSplit.length > 3) {
                             if (sortie != ligneSplit[3].charAt(1))
                                 sortie = ligneSplit[3].charAt(1);
                         }
-                        source.addTransition(entree, fin, sortie);
+                        this.automate.getTransitions().add(new Transition(source, fin, entree, sortie));
                         break;
                 }
             }
@@ -150,7 +121,7 @@ public class Moteur {
         int numLigne = 0;
         ArrayList<String> motsLus = new ArrayList<>();
 
-        System.out.println("Automate : \"" + this.commentaire + "\"\nVocabulaire accepté : " + this.vocabulaireEntree +
+        System.out.println("Automate : \"" + this.automate.getCommentaire() + "\"\nVocabulaire accepté : " + this.automate.getVocabulaireEntree() +
                 "\nVeuillez saisir les phrases à lire : ");
 
         String mot;
@@ -188,28 +159,35 @@ public class Moteur {
         ArrayList<String> motsTraites = new ArrayList<>();
         String affichage = "";
         String sortieS = "";
-        Etat etatCourant = new Etat(this.etatsInitiaux.get(0));
+        ArrayList<Etat> etatsAutomate = this.automate.getEtats();
+        Etat etatCourant = etatsAutomate.get(0);
+
+        boolean containsC = false;
 
         for (int i = 0; i < mot.length(); ++i) {
             char c = mot.charAt(i);
             affichage += "État courant : " + etatCourant.getNom() + ", Entrée : " + c;
-            if (etatCourant.getTransitions().containsKey(c)) {
-                Transition t = new Transition();
-                for (Transition t2 : etatCourant.getTransitions().get(c)) {
+            ArrayList<Transition> transitionsDeE = this.automate.getTransitionsDeE(etatCourant);
+            Transition t = new Transition();
+            for(Transition t2: transitionsDeE){
+                if (t2.getEntree().equals(c)){
+                    containsC = true;
                     t = t2;
                 }
+            }
 
+            if(containsC){
                 etatCourant = t.getEtatSortie();
                 char sortie = t.getSortie();
 
-                if (sortie != Transition.meta) {
+                if(sortie != AEF.getMeta()){
                     affichage += ", Sortie : " + sortie;
                     sortieS += sortie;
                 }
 
                 affichage += " Transition trouvée vers l'état : " + t.getEtatSortie().getNom() + '\n';
-            } else {
-                affichage += "Aucune transition trouvée\n";
+            } else{
+                affichage += " Aucune transition trouvée\n";
                 break;
             }
         }
@@ -223,5 +201,38 @@ public class Moteur {
         affichage += "\n-- Fin de phrase --\n";
         motsTraites.add(affichage);
         return motsTraites;
+    }
+
+    public void getDotFile(){
+        String dotFile = "dotFile.dot";
+        String pngFile = "pngFile.png";
+        System.out.println("Création du fichier .dot");
+        try(Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(DOSSIER + DOT + dotFile), "utf-8"))){
+            writer.write("digraph G{");
+            for(Transition t: this.automate.getTransitions())
+                writer.write(t.getEtatEntree().getNom() + "->" + t.getEtatSortie().getNom() + " [label=\"" + t.getEntree() + "/" + t.getSortie() + "\"];");
+            for(Etat i: this.automate.getEtatsInitiaux())
+                writer.write("\"\"->" + i.getNom() + ";");
+            writer.write("\"\" [shape=none]");
+            for (Etat f: this.automate.getEtatsAcceptants())
+                writer.write(f.getNom() + " [peripheries=2];");
+            writer.write("}");
+
+            System.out.println("Fichier .dot créé dans le dossier files/dot");
+
+            Runtime rt = Runtime.getRuntime();
+            try{
+                Process exec = rt.exec("dot -Tpng " + DOSSIER + DOT + dotFile + " -o " + DOSSIER + PNG + pngFile);
+                System.out.println("Fichier .png créé dans le dossier files/png");
+            } catch (IOException e){
+                System.out.println(e);
+            }
+        } catch (UnsupportedEncodingException e) {
+            System.out.println(e);
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }

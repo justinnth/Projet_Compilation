@@ -5,56 +5,50 @@ package compilation;
  * Une transition est nécessairement liée à un État et à un caractère d'entrée
  * Pas nécessairement à un caractère de sortie, celui-ci peut être lambda
  */
-class Transition implements Comparable {
-    /**
-     * Caractère d'entrée par défaut (lambda)
-     */
-    public static Character meta = '#';
-
-    private final Etat etatSortie; // État de sortie auquel elle est associée
-    private final Character sortie; // Sortie possible de la transition
+class Transition {
+    private Etat etatEntree; // État d'entrée de la transition
+    private Etat etatSortie; // État de sortie auquel elle est associée
+    private Character entree; // Entrée nécessaire pour la transition
+    private Character sortie; // Sortie possible de la transition
 
     /**
      * Constructeur d'une transition avec un nouvel etatSortie vide, et sans sortie associée
      */
-    Transition() {
+    public Transition() {
+        this.etatEntree = new Etat();
         this.etatSortie = new Etat();
-        this.sortie = Transition.meta;
+        this.entree = AEF.getMeta();
+        this.sortie = AEF.getMeta();
     }
 
     /**
-     * Constructeur d'une transition avec un etatSortie, et sans sortie associée
-     * @param e État auquel la transition est liée
+     * Constructeur d'une transition avec des paramètres déjà définis
+     * @param etatEntree État d'entrée
+     * @param etatSortie État de sortie
+     * @param entree Caractère d'entrée
+     * @param sortie Caractère de sortie
      */
-    Transition(Etat e) {
-        this.etatSortie = e;
-        this.sortie = Transition.meta;
+    public Transition(Etat etatEntree, Etat etatSortie, Character entree, Character sortie) {
+        this.etatEntree = etatEntree;
+        this.etatSortie = etatSortie;
+        this.entree = entree;
+        this.sortie = sortie;
     }
 
-    /**
-     * Constructeur d'une transition avec un etatSortie et un caractère de sortie associé
-     * @param e État auquel la transition est associée
-     * @param s Caractère de sortie auquel la transition est associée
-     */
-    Transition(Etat e, char s) {
-        this.etatSortie = e;
-        this.sortie = s;
+    public Etat getEtatEntree() {
+        return etatEntree;
     }
 
-    /**
-     * Récupère l'état de sortie de la transition
-     * @return État de sortie
-     */
-    Etat getEtatSortie() {
-        return this.etatSortie;
+    public Etat getEtatSortie() {
+        return etatSortie;
     }
 
-    /**
-     * Récupère le caractère de sortie
-     * @return Caractère de sortie
-     */
-    Character getSortie() {
-        return this.sortie;
+    public Character getEntree() {
+        return entree;
+    }
+
+    public Character getSortie() {
+        return sortie;
     }
 
     /**
@@ -65,19 +59,16 @@ class Transition implements Comparable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true; // Si o est l'objet alors il y a forcément égalité
-        else if(o instanceof Transition) return this.compareTo((Transition) o) == 0; // Si o est une Transition alors on compare les 2 grâce à compareTo, si la différence de leur hash code est de 0, alors il y a égalité
+        else if(o instanceof Transition){
+            // Si o est une Transition alors on compare chaque valeurs de la transition
+            if (((Transition) o).getEntree().equals(this.getEntree()) &&
+                    ((Transition) o).getSortie().equals(this.getSortie()) &&
+                    ((Transition) o).getEtatEntree().equals(this.getEtatEntree()) &&
+                    ((Transition) o).getEtatSortie().equals(this.getEtatSortie()))
+                return true;
+            return false;
+        }
         else return false; // Sinon il n'y a pas égalité
-    }
-
-    /**
-     * Override de la méthode hashCode
-     * @return
-     */
-    @Override
-    public int hashCode() {
-        int hash = this.etatSortie.hashCode() * this.etatSortie.hashCode();
-        hash += this.sortie.hashCode() * this.sortie.hashCode();
-        return hash;
     }
 
     /**
@@ -86,22 +77,6 @@ class Transition implements Comparable {
      */
     @Override
     public String toString() {
-        return "Transition { " + "etatSortie=" + etatSortie + ", sortie=" + sortie + " }";
-    }
-
-    /**
-     * Override de la méthode compareTo implémentée de l'interface Comparable
-     * @param o Objet auquel on compare la transition
-     * @return La différence des 2 hash codes des objets comparés
-     */
-    @Override
-    public int compareTo(Object o) {
-        if(o == null)
-            throw new NullPointerException();
-        if(o.getClass() != this.getClass())
-            throw new ClassCastException();
-
-        final Transition t = (Transition) o;
-        return this.hashCode() - t.hashCode();
+        return "Transition { " + "etatEntree=" + etatEntree + ", entree=" + entree + ", etatSortie=" + etatSortie + ", sortie=" + sortie + " }";
     }
 }
