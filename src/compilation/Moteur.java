@@ -17,10 +17,10 @@ public class Moteur {
         this.automate = new AEF();
     }
 
-    public Moteur(AEF automate) throws IOException {
+    public Moteur(AEF automate, String nom) throws IOException {
         this();
         this.automate = automate;
-        this.lireFichierDescr("ND03.descr");
+        this.lireFichierDescr(nom);
     }
 
     /**
@@ -203,6 +203,9 @@ public class Moteur {
         return motsTraites;
     }
 
+    /**
+     * Méthode permettant d'obtenir un fichier .dot et d'éxecuter la commande pour obtenir le fichier .png correspondant
+     */
     public void getDotFile(){
         String dotFile = "dotFile.dot";
         String pngFile = "pngFile.png";
