@@ -30,6 +30,7 @@ public class Moteur {
      * @throws IOException Exception pour l'ouvertur du fichier
      */
     private void lireFichierDescr(String f) throws IOException {
+        boolean deterministe = false;
         try {
             BufferedReader br = new BufferedReader(new FileReader(DOSSIER + DESCR + f));
             String ligne;
@@ -237,5 +238,13 @@ public class Moteur {
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    public AEF getAutomate() {
+        return automate;
+    }
+
+    public void setAutomate(AEF automate) {
+        this.automate = automate;
     }
 }
